@@ -1,0 +1,133 @@
+.email-subscription-overlay {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0);
+    font-family: "Roboto", sans-serif;  
+    z-index: -100;
+    transition: all 400ms;
+}
+
+.email-subscription-overlay.active {
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 200;
+}
+
+.email-subscription-container {
+    background: #fff;
+    padding: 32px;
+    text-align: center;
+    display: flex;
+    box-shadow: 0 2px 12px 3px rgba(0, 0, 0, 0.3);
+    border-radius: 8px;
+    transform: translateY(-200px);
+    opacity: 0;
+    transition: all 200ms;
+}
+
+.email-subscription-overlay.active .email-subscription-container {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.email-subscription-container form {
+    display: flex;
+    flex-direction: column;
+    margin-top: 32px;
+}
+
+.email-subscription-overlay .email-close-btn {
+    top: 24px;
+    right: 24px;
+    position: fixed;
+    font-size: 48px;
+    font-weight: bold;
+    color:#eee;
+    background: none;
+    border: none;
+    cursor: pointer;
+    transform: rotate(45deg);
+    opacity: 0;
+    pointer-events: none;
+    transition: all 400ms;
+}
+
+.email-subscription-overlay.active .email-close-btn {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+
+.email-subscription-container img {
+    width: 300px;
+    object-fit: contain;
+}
+
+.email-subscription-container h2 {
+    font-size: 48px;
+    text-transform: uppercase;
+    margin-bottom: 0;
+    margin-top: 12px;
+    color: #0a0908;
+}
+
+.email-subscription-container p {
+    margin-top: 8px;
+    font-weight: bold;
+    color: #1d3557;
+}
+
+.email-subscription-container .text-content {
+    padding: 48px;
+}
+
+.email-subscription-container form .email-input-field {
+    margin-bottom: 16px;
+    padding: 12px 24px;
+    font-size: 16px;
+    border: 1px solid #777;
+    font-family: "Roboto", sans-serif;
+}
+
+.email-subscription-container form .email-submit-btn {
+    background: #02c39a;
+    border: none;
+    font-weight: bold;
+    font-size: 20px;
+    color: #fff;
+    padding: 14px 24px;
+    cursor: pointer;
+    font-family: "Roboto", sans-serif;
+    text-transform: uppercase;
+    transition: all 400ms;
+}
+
+.email-subscription-container form .email-submit-btn:hover {
+    background: #069b7a;
+}
+
+/* Media Queries */
+
+@media (max-width: 800px) {
+    .email-subscription-container {
+        flex-direction: column;
+        width: 400px;
+        align-items: center;
+    }
+
+    .email-subscription-container .text-content {
+        padding: 0;
+        width: 100%;
+    }
+}
+
+@media (max-width: 500px) {
+    .email-subscription-container {
+        width: 75%;
+    }
+}
